@@ -1,12 +1,11 @@
 {
     "disableAutoUpdate": false,
-    "name": "Auto auras",
+    "name": "auto-aura",
     "author": "HSDN / Cybours",
-    "description": "Automatically enables auras on mystic",
+    "description": "Automatically enables auras on mystic.",
     "version": "1.0",
     "options": {
-        "niceName": "Auto auras",
-        "guiName": "Auto auras",
+        "niceName": "Auto Aura",
         "settingsVersion": 1,
         "settingsFile": "config.json",
         "settingsMigrator": "settings_migrator.js"
