@@ -39,6 +39,17 @@ module.exports = function autoAuras(mod) {
 		mod.setTimeout(() => enableAuras(), 3000);
 	});
 
+	mod.hook("S_PARTY_MEMBER_STAT_UPDATE", 4, event => {
+		if (!isEnabled()) return;
+		if (event.playerId !== mod.game.me.playerId) return;
+		if (!event.alive) return;
+		if (intervalId) {
+			mod.clearInterval(intervalId);
+			intervalId = null;
+		}
+		mod.setTimeout(() => enableAuras(), 3000);
+	});
+
 	mod.hook("C_PLAYER_LOCATION", 5, { "order": Infinity }, event => {
 		playerLocation = event.loc;
 		playerDirection = event.w;
