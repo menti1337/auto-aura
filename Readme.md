@@ -7,7 +7,6 @@ Automatically enables auras (crit, crit-resist and thrall) when playing mystic.
 |Toolbox(/8)|Command description|
 |-|-|
 |**autoaura**|Module on/off (default: on).|
-|**autoaura pvp**|Enabling aura for PvP instead of PvE (default: off).|
 
 
 
