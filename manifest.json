@@ -2,7 +2,7 @@
     "files": {
         "index.js": "6f588b47fc1f5945c78708dd9f1cf61130a132c9fece42daf7fcc4d71daa2629",
         "module.json": "7b4b5262937f9067efa81648436287c23df12fc7e541e60b58bf1c6ea7df807b",
-        "settings_migrator.js": "6721d3d4c0bd3fdb0eae09cc08072edd07463e7791d49e48f2ff23b16d056aee"
+        "settings_migrator.js": "1b370a015c3550c2aa1384c80bc02b4cd00c1e5b11219e1f4d9db561c36a2c33"
     },
     "defs": {
         "C_CANCEL_SKILL": 3,
