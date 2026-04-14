@@ -12,18 +12,9 @@ module.exports = function autoAuras(mod) {
 
 	mod.game.initialize("me.abnormalities");
 
-	mod.command.add("autoaura", {
-		$none() {
-			mod.settings.enabled = !mod.settings.enabled;
-			mod.command.message(`auto-aura ${mod.settings.enabled ? "Enabled" : "Disabled"}.`);
-		},
-		pvp() {
-			mod.settings.pvp = !mod.settings.pvp;
-			mod.command.message(`auto-aura PvP ${mod.settings.pvp ? "Enabled" : "Disabled"}.`);
-		},
-		$default() {
-			mod.command.message("Error (typo?) in command! see README for the list of valid commands");
-		}
+	mod.command.add("autoaura", () => {
+		mod.settings.enabled = !mod.settings.enabled;
+		mod.command.message(`auto-aura ${mod.settings.enabled ? "Enabled" : "Disabled"}.`);
 	});
 
 	mod.hook("S_SPAWN_ME", 3, { "order": Infinity }, event => {
@@ -31,8 +22,21 @@ module.exports = function autoAuras(mod) {
 		playerDirection = event.w;
 
 		if (isEnabled() && event.alive) {
+			if (intervalId) {
+				mod.clearInterval(intervalId);
+				intervalId = null;
+			}
 			mod.setTimeout(() => enableAuras(), 3000);
 		}
+	});
+
+	mod.hook("C_REVIVE_NOW", 2, () => {
+		if (!isEnabled()) return;
+		if (intervalId) {
+			mod.clearInterval(intervalId);
+			intervalId = null;
+		}
+		mod.setTimeout(() => enableAuras(), 3000);
 	});
 
 	mod.hook("C_PLAYER_LOCATION", 5, { "order": Infinity }, event => {
@@ -80,13 +84,8 @@ module.exports = function autoAuras(mod) {
 			}
 
 			// Aura of the Unyielding
-			if (hasNoAbn([700203, 700233]) && mod.settings.pvp) {
+			if (hasNoAbn([700203, 700233])) {
 				startSkill(150400);
-			}
-
-			// Aura of the Tenacious
-			if (hasNoAbn([700330, 700300]) && !mod.settings.pvp) {
-				startSkill(160100);
 			}
 
 			// Thrall Augmentation
@@ -95,7 +94,7 @@ module.exports = function autoAuras(mod) {
 			}
 
 			if (!hasNoAbn([700600, 700601, 700602, 700603]) &&
-				!hasNoAbn([700203, 700233, 700330, 700300]) &&
+				!hasNoAbn([700203, 700233]) &&
 				!hasNoAbn([702000, 702005])
 			) {
 				mod.clearInterval(intervalId);
