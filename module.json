@@ -1,15 +1,15 @@
 {
     "disableAutoUpdate": false,
     "name": "auto-aura",
-    "author": "HSDN / Cybours",
+    "author": "HSDN / Cybours / Menti1337",
     "description": "Automatically enables auras on mystic.",
-    "version": "1.0",
+    "version": "1.1",
     "options": {
         "niceName": "Auto Aura",
         "settingsVersion": 1,
         "settingsFile": "config.json",
         "settingsMigrator": "settings_migrator.js"
     },
-    "servers": ["https://raw.githubusercontent.com/hsdn/auto-aura/master/"],
-    "supportUrl": "https://github.com/hsdn/auto-aura/issues"
+    "servers": ["https://github.com/menti1337/auto-aura"],
+    "supportUrl": "https://github.com/menti1337/auto-aura/issues"
 }
