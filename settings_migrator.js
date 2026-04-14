@@ -1,7 +1,5 @@
 const DefaultSettings = {
   "enabled": true,
-  "onrez": false,
-  "pvp": false
 }
 
 module.exports = function MigrateSettings(from_ver, to_ver, settings) {
