@@ -1,6 +1,6 @@
 # auto-aura
 
-Automatically enables auras afer 3 seconds (crit, crit-resist and thrall) when playing mystic.
+Automatically enables auras after 3 seconds (crit, crit-resist and thrall) when playing mystic.
 
 ## Commands
 
