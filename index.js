@@ -50,6 +50,17 @@ module.exports = function autoAuras(mod) {
 		mod.setTimeout(() => enableAuras(), 3000);
 	});
 
+	mod.hook("S_CREATURE_LIFE", 3, event => {
+		if (!isEnabled()) return;
+		if (!mod.game.me.is(event.gameId)) return;
+		if (!event.alive) return;
+		if (intervalId) {
+			mod.clearInterval(intervalId);
+			intervalId = null;
+		}
+		mod.setTimeout(() => enableAuras(), 3000);
+	});
+
 	mod.hook("C_PLAYER_LOCATION", 5, { "order": Infinity }, event => {
 		playerLocation = event.loc;
 		playerDirection = event.w;
