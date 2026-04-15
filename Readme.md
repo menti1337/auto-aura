@@ -2,6 +2,8 @@
 
 Automatically enables auras after 3 seconds (crit, crit-resist and thrall) when playing mystic.
 
+!! Not forbidden, but undesirable on Tera Starscape. There's no rule-based reason for it; it's simply the way it is. !!
+
 ## Commands
 
 |Toolbox(/8)|Command description|
